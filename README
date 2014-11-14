@@ -1,0 +1,6 @@
+# Setup a Mac using Ansible
+
+run
+
+	git clone https://github.com/carlwolff/macsetup.git
+	./macsetup.sh

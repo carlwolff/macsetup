@@ -1,0 +1,17 @@
+---
+
+- name: Install redis
+  homebrew: name=redis state=present
+  tags: redis
+
+- name: Start services at login
+  file: src=/usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist path=~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist state=link force=yes
+  tags: redis
+  with_items:
+    - redis
+
+- name: Setup launch agents for services
+  command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+  tags: redis
+  with_items:
+    - redis

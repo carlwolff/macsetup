@@ -1,0 +1,3 @@
+---
+- name: restart finder
+  raw: for app in Finder Dock SystemUIServer; do killall "$app" >/dev/null 2>&1; done

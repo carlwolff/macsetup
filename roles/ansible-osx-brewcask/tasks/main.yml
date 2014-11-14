@@ -1,0 +1,10 @@
+---
+
+- name: brewcask | brew tap brew-cask
+  shell: /usr/local/bin/brew tap phinze/homebrew-cask
+  ignore_errors: true
+  tags: brewcask
+
+- name: brewcask | install brew-cask
+  homebrew: name=brew-cask state=present update_homebrew=yes
+  tags: brewcask

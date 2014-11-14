@@ -1,0 +1,64 @@
+home: "{{ lookup('env','HOME') }}"
+src_home: "{{ home }}/code"
+
+# Command line applications
+cliapps:
+  brew:
+    - ack
+    - bash
+    - findutils
+    - git
+    - ssh-copy-id
+    - tmux
+    - vim
+    - wget
+    - zsh
+    - screenresolution
+    - git-flow
+    - mysql
+    - rabbitmq
+    - kdiff3
+  gems:
+    - bundler
+    - watchr
+    - foreman
+    - eye
+
+# GUI applications - https://github.com/phinze/homebrew-cask/tree/master/Casks
+guiapplications:
+  - alfred
+  - appcleaner
+  - bettertouchtool
+  - dropbox
+  - google-chrome
+  - grandperspective
+  - iterm2
+  - mou
+  - omnigraffle
+  - onepassword
+  - owncloud
+  - skype
+  - spotify
+  - plex-home-theater
+  - sublime-text
+  - google-drive
+  - apns-pusher
+  - freemind
+  - gas-mask
+  - mongohub
+  - screenflow
+  - sourcetree
+  - virtualbox
+  - vagrant
+  - sequel-pro
+  - eclipse-ide
+  - xquartz
+  - launchrocket
+  - anvil
+  - intellij-idea-ce
+
+# Databases
+databases:
+  - mysql
+  - redis
+  - mongodb

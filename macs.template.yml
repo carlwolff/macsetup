@@ -1,0 +1,23 @@
+---
+- name: Initial setup for a cool mac
+  hosts: localhost
+  connection: local
+  user: hello
+
+- hosts: localhost
+  connection: local
+  roles:
+    - ansible-osx-defaults
+    - ansible-osx-brew
+    - ansible-osx-brewcask
+    - ansible-osx-databases
+    - ansible-osx-ruby
+    - ansible-osx-apps
+
+# http://mallinson.ca/post/osx-web-development/
+#   - dnsmasq
+#   - http://cmall.github.io/LocalHomePage/
+
+# - hosts: remotehost
+#   roles:
+#     - ansible-osx-defaults

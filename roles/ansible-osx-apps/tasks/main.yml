@@ -1,0 +1,20 @@
+---
+
+- name: Install CLI-gems
+  gem: name={{ item }} state=present
+  with_items: cliapps.gems
+  tags: cliapps
+
+- name: Install GUI-apps
+  name: brewcask | Check for installed apps(casks)
+  shell: brew cask list | grep {{ item }}
+  with_items: guiapplications
+  tags: brewcask
+  register: installed_applications
+  ignore_errors: true
+
+- name: Install apps with brew-cask
+  shell: brew cask install {{ item }}
+  with_items: guiapplications
+  # when: "{{ item not in installed_applications.results|map(attribute='stdout') }}"
+  tags: brewcask
