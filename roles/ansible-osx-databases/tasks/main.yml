@@ -2,5 +2,3 @@
 
 - include: mysql.yml
 - include: redis.yml
-# - include: postgresql.yml
-# - include:

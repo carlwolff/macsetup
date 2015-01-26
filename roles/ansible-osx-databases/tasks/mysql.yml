@@ -4,13 +4,13 @@
   homebrew: name=mysql state=present
   tags: mysql
 
-- name: Start services at login
+- name: Start services at login (autostart)
   file: src=/usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist path=~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist state=link force=yes
   tags: mysql
   with_items:
     - mysql
 
-- name: Setup launch agents for services
+- name: Setup launch agents for services (autostart)
   command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
   tags: mysql
   with_items:

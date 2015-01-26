@@ -8,13 +8,16 @@ cliapps:
     - bash
     - findutils
     - git
-    - git-flow
-    - kdiff3
     - ssh-copy-id
     - tmux
     - vim
     - wget
     - zsh
+    - screenresolution
+    - git-flow
+    - mysql
+    - rabbitmq
+    - kdiff3
   gems:
     - bundler
     - watchr
@@ -28,18 +31,27 @@ guiapplications:
   - appcleaner
   - bettertouchtool
   - dropbox
+  - eclipse-ide
   - freemind
   - gas-mask
   - google-chrome
   - google-drive
   - grandperspective
+  - intellij-idea-ce
   - iterm2
   - launchrocket
+  - mongohub
+  - mou
+  - omnigraffle
+  - onepassword
+  - owncloud
   - plex-home-theater
+  - screenflow
+  - sequel-pro
   - skype
   - sourcetree
   - spotify
-  - sublime-text3
+  - sublime-text
   - vagrant
   - virtualbox
   - xquartz
@@ -48,3 +60,4 @@ guiapplications:
 databases:
   - mysql
   - redis
+  - mongodb

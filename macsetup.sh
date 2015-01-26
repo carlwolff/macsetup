@@ -18,3 +18,7 @@ echo "==> ansible-playbook -K -i localhost macs.yml"
 
 echo "TimeVault?"
 echo "==> Run: sudo fdesetup enable"
+
+echo "Please remember that we will might not autoload services such as mysql"
+echo "write 'brew info mysql' for more info (also check redis, rabbitmq, mysql)"
+echo "if you include the role for databases, this will be done automatically but not dynamically"

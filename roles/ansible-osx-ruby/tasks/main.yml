@@ -1,0 +1,58 @@
+---
+
+# http://www.nickhammond.com/automating-development-environment-ansible/
+
+# - name: Get available rbenv installed ruby versions
+#   shell: rbenv versions
+#   register: rubyversions
+#   tags: ruby
+
+- name: Install ruby build helpers via homebrew
+  homebrew: name={{ item }} state=present
+  with_items:
+  - chruby
+  - gdbm
+  - libffi
+  - libyaml
+  - openssl
+  - pkg-config
+  - readline
+  - ruby-build
+  - ruby-install
+  tags: ruby
+
+- name: Install chruby
+  homebrew: name=chruby
+  tags: ruby
+
+- name: ruby-install
+  homebrew: name=ruby-install
+  tags: ruby
+
+- name: Install ruby (latest)
+  command: ruby-install ruby
+  tags: ruby
+
+- name: Setup gemrc step 1/2
+  lineinfile: "dest=/Users/{{ user }}/.gemrc state=present line='install: --no-rdoc --no-ri'"
+  tags: ruby
+
+- name: Setup gemrc step 2/2
+  lineinfile: "dest=/Users/{{ user }}/.gemrc state=present line='update: --no-rdoc --no-ri'"
+  tags: ruby
+
+- name: chruby-setup (autoload step 1/2)
+  lineinfile: "dest=/Users/{{ user }}/.bashrc state=present line='source /usr/local/share/chruby/chruby.sh'"
+  tags: ruby
+
+- name: chruby-setup (autoload step 2/2)
+  lineinfile: "dest=/Users/{{ user }}/.bashrc state=present line='source /usr/local/share/chruby/auto.sh'"
+  tags: ruby
+
+- name: Install latest rubygems
+  shell: gem update --system
+  tags: ruby
+
+- name: Install default gems
+  shell: gem install {{ item }}
+  with_items: cliapps.gems
